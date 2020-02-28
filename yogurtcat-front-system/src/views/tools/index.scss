@@ -1,0 +1,30 @@
+.item {
+  width: 870px;
+  margin-bottom: 24px;
+  border: 1px solid #ebebeb;
+  border-radius: 3px;
+  transition: .2s;
+}
+
+.item:hover {
+  box-shadow: 0 0 8px rgba(232, 237, 250, .6),
+              0 2px 4px 0 rgba(232, 237, 250, .5);
+}
+
+.itemhead {
+  line-height: 60px;
+  padding-left: 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+.itembody {
+  padding: 24px;
+}
+
+.item .el-form {
+  width: 460px;
+}
+
+.item label {
+  font-weight: normal;
+}
