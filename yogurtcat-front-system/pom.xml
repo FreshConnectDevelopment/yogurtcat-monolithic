@@ -3,9 +3,9 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.freshconnect</groupId>
+	<groupId>com.github.freshconnect </groupId>
 	<artifactId>yogurtcat-front-system</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>${revision}</version>
 	<name>yogurtcat-front-system</name>
 	<description>
 		系统平台管理侧前端
