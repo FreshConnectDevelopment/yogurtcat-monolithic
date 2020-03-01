@@ -100,4 +100,30 @@
 		</dependencies>
 	</dependencyManagement>
 
+	<!-- 开源签名证书 -->
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+	<!-- 仓库信息 -->
+    <scm>
+        <connection>scm:git:git@github.com:freshconnect/yogurtcat.git</connection>
+        <developerConnection>scm:git:git@github.com:freshconnect/yogurtcat.git
+        </developerConnection>
+        <url>https://github.com/freshconnect/yogurtcat</url>
+    </scm>
+
+    <!-- 开发人员信息 -->
+    <developers>
+        <developer>
+            <name>Darren</name>
+            <email>780490696@qq.com</email>
+            <organization>https://github.com/freshconnect</organization>
+            <timezone>+8</timezone>
+        </developer>
+    </developers> 
+
 </project>
