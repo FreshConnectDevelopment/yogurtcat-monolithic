@@ -6,7 +6,7 @@ function resolve(dir) {
   return path.join(__dirname, dir)
 }
 
-const name = defaultSettings.title || 'YogurtCat Front System' // page title
+const name = defaultSettings.title || 'yogurtcat front system' // page title
 const port = 9528 // dev port
 const server_port = 8080 // server port
 

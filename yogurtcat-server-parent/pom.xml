@@ -9,10 +9,8 @@
 		<artifactId>yogurtcat</artifactId>
 		<version>${revision}</version>
 	</parent>
-	<groupId>com.github.freshconnect </groupId>
 	<artifactId>yogurtcat-server-parent</artifactId>
 	<name>yogurtcat-server-parent</name>
-	<version>${revision}</version>
 	<packaging>pom</packaging>
 	
 	<properties>

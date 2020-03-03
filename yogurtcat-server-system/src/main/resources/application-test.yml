@@ -1,0 +1,26 @@
+#测试环境配置文件
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    password: Admin@123
+    url: jdbc:mysql://localhost:3306/yogurtcat?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&serverTimezone=CTT
+    username: root
+  data:
+    elasticsearch:
+        repositories:
+            enabled: false
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    
+logging:
+  level:
+    org:
+      hibernate: debug
+    root: info
+    
+jwt:
+  expiration: 720000000
+  secret: test
+    

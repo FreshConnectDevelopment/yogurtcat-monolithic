@@ -1,5 +1,5 @@
 module.exports = {
-  title: 'YogurtCat Front System',
+  title: 'yogurtcat front system',
 
   /**
    * @type {boolean} true | false

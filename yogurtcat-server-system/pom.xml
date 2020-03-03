@@ -10,7 +10,6 @@
 		<version>${revision}</version>
 		<relativePath>../yogurtcat-server-parent</relativePath>
 	</parent>
-	<groupId>com.github.freshconnect </groupId>
 	<artifactId>yogurtcat-server-system</artifactId>
 	<packaging>jar</packaging>
 	<name>yogurtcat-server-system</name>
@@ -20,31 +19,31 @@
 	</properties>
 
 	<!-- 开源签名证书 -->
-    <licenses>
-        <license>
-            <name>The Apache Software License, Version 2.0</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-            <distribution>repo</distribution>
-        </license>
-    </licenses>
+	<licenses>
+		<license>
+			<name>The Apache Software License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
 	<!-- 仓库信息 -->
-    <scm>
-        <connection>scm:git:git@github.com:freshconnect/yogurtcat.git</connection>
-        <developerConnection>scm:git:git@github.com:freshconnect/yogurtcat.git
+	<scm>
+		<connection>scm:git:git@github.com:freshconnect/yogurtcat.git</connection>
+		<developerConnection>scm:git:git@github.com:freshconnect/yogurtcat.git
         </developerConnection>
-        <url>https://github.com/freshconnect/yogurtcat</url>
-    </scm>
+		<url>https://github.com/freshconnect/yogurtcat</url>
+	</scm>
 
-    <!-- 开发人员信息 -->
-    <developers>
-        <developer>
-            <name>Darren</name>
-            <email>780490696@qq.com</email>
-            <organization>https://github.com/freshconnect</organization>
-            <timezone>+8</timezone>
-        </developer>
-    </developers> 
-	
+	<!-- 开发人员信息 -->
+	<developers>
+		<developer>
+			<name>Darren</name>
+			<email>780490696@qq.com</email>
+			<organization>https://github.com/freshconnect</organization>
+			<timezone>+8</timezone>
+		</developer>
+	</developers>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -101,7 +100,7 @@
 		</dependency>
 
 		<dependency>
-		<groupId>org.springframework.boot</groupId>
+			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
 		<dependency>
@@ -121,19 +120,23 @@
 			<groupId>org.mapstruct</groupId>
 			<artifactId>mapstruct</artifactId>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
 		</dependency>
 		<dependency>
-		    <groupId>org.apache.commons</groupId>
-		    <artifactId>commons-compress</artifactId>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-compress</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-core</artifactId>
 		</dependency>
 	</dependencies>
 	<profiles>

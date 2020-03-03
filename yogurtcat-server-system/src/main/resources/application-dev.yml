@@ -1,0 +1,40 @@
+#开发环境配置文件
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    password: password
+    url: jdbc:h2:mem:yogurtcat;MODE=MySQL;DATABASE_TO_LOWER=TRUE
+    username: root
+  h2:
+    console:
+      enabled: true
+  data:
+    elasticsearch:
+        repositories:
+            enabled: false
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+  rabbitmq:
+    host: 132.232.54.102
+    port: 5672
+    username: admin
+    password: secret
+    template: 
+        retry:
+            enabled: true
+            initial-interval: 2s
+logging:
+  level:
+    org:
+      hibernate: debug
+      springframework:
+        web: debug
+    root: info
+  file:
+    path: log
+    
+jwt:
+  expiration: 720000000
+  secret: test

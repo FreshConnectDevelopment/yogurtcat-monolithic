@@ -10,7 +10,6 @@
 		<version>${revision}</version>
 		<relativePath>../yogurtcat-server-parent</relativePath>
 	</parent>
-	<groupId>com.github.freshconnect </groupId>
 	<artifactId>yogurtcat-server-common</artifactId>
 	<name>yogurtcat-server-common</name>
 	<url>http://maven.apache.org</url>
