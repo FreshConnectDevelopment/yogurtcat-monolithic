@@ -1,0 +1,13 @@
+[Unit]
+Description=yogurtcat-server-system
+After=syslog.target
+
+[Service]
+User=yogurtcat
+ExecStart=/opt/yogurtcat-server-system/run/yogurtcat.sh start
+ExecStop=/opt/yogurtcat-server-system/run/yogurtcat.sh stop
+ExecReload=/opt/yogurtcat-server-system/run/yogurtcat.sh restart
+SuccessExitStatus=143
+
+[Install]
+WantedBy=multi-user.target

@@ -27,13 +27,10 @@ spring:
             initial-interval: 2s
 logging:
   level:
-    org:
-      hibernate: debug
-      springframework:
-        web: debug
     root: info
   file:
-    path: log
+    path: /opt/yogurtcat-server-system/log/
+    name: yogurtcat-server-system.log
     
 jwt:
   expiration: 720000000

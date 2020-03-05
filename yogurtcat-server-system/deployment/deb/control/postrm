@@ -1,0 +1,4 @@
+#!/bin/sh
+userdel yogurtcat
+groupdel yogurtcatG
+rm -rf  /opt/yogurtcat-server-system
