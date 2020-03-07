@@ -8,7 +8,7 @@ function resolve(dir) {
 
 const name = defaultSettings.title || 'yogurtcat front system' // page title
 const port = 9528 // dev port
-const server_port = 8080 // server port
+const server_port = 8443 // server port
 
 // All configuration item explanations can be find in https://cli.vuejs.org/config/
 module.exports = {
@@ -35,7 +35,7 @@ module.exports = {
       // change xxx-api/login => mock/login
       // detail: https://cli.vuejs.org/config/#devserver-proxy
       [process.env.VUE_APP_BASE_API]: {
-        target: `http://127.0.0.1:${server_port}`,
+        target: `https://127.0.0.1:${server_port}`,
         changeOrigin: true,
         pathRewrite: {
           ['^' + process.env.VUE_APP_BASE_API]: ''

@@ -18,3 +18,6 @@ spring启动配置文件提供了三种场景，具体说明如下
     开发阶段数据库采用内存数据库H2的mysql模式，开发人员可以启动后就可以调试程序没有额外的数据库依赖
     - application-test.yml
     - application-prod.yml
+
+## 十年期ssl证书生成
+keytool -genkey -alias yogurtcat -keyalg RSA -validity 3650 -keystore yogurtcat.keystore

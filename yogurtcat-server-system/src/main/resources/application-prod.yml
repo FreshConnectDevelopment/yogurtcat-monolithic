@@ -1,7 +1,21 @@
 #发布环境配置文件
+server:
+  port: 8443
+  ssl:
+    key-store: classpath:cert/yogurtcat.keystore #发布版本需要重新生成证书或者替换为客户提供的证书
+    key-store-password: 1qaz@WSX3edc
+    key-password: 1qaz@WSX3edc
+  tomcat:
+    basedir: /opt/yogurtcat-server-system
+    accesslog:
+      enabled: true
+      pattern: "%t %a '%r' %s (%D ms)"
 logging:
   level:
     root: info
+  file:
+    path: /opt/yogurtcat-server-system/logs/
+    name: yogurtcat-server-system.log
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver

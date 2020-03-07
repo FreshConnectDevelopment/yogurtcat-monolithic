@@ -1,4 +1,15 @@
 #测试环境配置文件
+server:
+  port: 8443
+  ssl:
+    key-store: classpath:cert/yogurtcat.keystore
+    key-store-password: 1qaz@WSX3edc
+    key-password: 1qaz@WSX3edc
+  tomcat:
+    basedir: /opt/yogurtcat-server-system
+    accesslog:
+      enabled: true
+      pattern: "%t %a '%r' %s (%D ms)"
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
@@ -19,6 +30,9 @@ logging:
     org:
       hibernate: debug
     root: info
+  file:
+    path: /opt/yogurtcat-server-system/logs/
+    name: yogurtcat-server-system.log
     
 jwt:
   expiration: 720000000
