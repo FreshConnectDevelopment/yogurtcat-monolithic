@@ -16,6 +16,7 @@
 	<url>http://maven.apache.org</url>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<m2e.apt.activation>jdt_apt</m2e.apt.activation>
 	</properties>
 
 	<!-- 开源签名证书 -->
@@ -136,7 +137,6 @@
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-test</artifactId>
-			<version>5.1.5.RELEASE</version>
 		</dependency>
 	</dependencies>
 	<profiles>
