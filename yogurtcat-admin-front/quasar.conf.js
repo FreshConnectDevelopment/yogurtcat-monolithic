@@ -1,7 +1,15 @@
+/* eslint-env node */
+
+/*	
+ * This file runs in a Node context (it's NOT transpiled by Babel), so use only	
+ * the ES6 features that are supported by your Node version. https://node.green/	
+ */
+
 // Configuration for your app
 // https://quasar.dev/quasar-cli/quasar-conf-js
 
-module.exports = function (ctx) {
+
+module.exports = function (/* ctx */) {
   return {
     // app boot file (/src/boot)
     // --> boot files are part of "main.js"
@@ -48,6 +56,9 @@ module.exports = function (ctx) {
 
     // https://quasar.dev/quasar-cli/cli-documentation/supporting-ie
     supportIE: true,
+
+    // https://quasar.dev/quasar-cli/cli-documentation/supporting-ts
+    supportTS: false,
 
     // Full list of options: https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-build
     build: {
@@ -97,12 +108,15 @@ module.exports = function (ctx) {
       workboxPluginMode: "GenerateSW", // 'GenerateSW' or 'InjectManifest'
       workboxOptions: {}, // only for GenerateSW
       manifest: {
-        name: "Yogurtcat Admin Front",
-        short_name: "Yogurtcat Admin Front",
+        name: "Quasar App",
+
+        short_name: "Quasar App",
         description: "A Quasar Framework app",
         display: "standalone",
         orientation: "portrait",
+
         background_color: "#ffffff",
+
         theme_color: "#027be3",
         icons: [
           {
@@ -169,7 +183,7 @@ module.exports = function (ctx) {
       // More info: https://quasar.dev/quasar-cli/developing-electron-apps/node-integration
       nodeIntegration: true,
 
-      extendWebpack(cfg) {
+      extendWebpack(/* cfg */) {
         // do something with Electron main process Webpack cfg
         // chainWebpack also available besides this extendWebpack
       }

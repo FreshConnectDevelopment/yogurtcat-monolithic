@@ -1,11 +1,10 @@
-# Yogurtcat Admin Front (yogurtcat-admin-front)
+# Quasar App (yogurtcat-admin-front)
 
 A Quasar Framework app
 
 ## Install the dependencies
 ```bash
-npm config set registry https://registry.npm.taobao.org
-npm install --registry=https://registry.npm.taobao.org
+npm install
 ```
 
 ### Start the app in development mode (hot-code reloading, error reporting, etc.)
