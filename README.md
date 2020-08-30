@@ -47,3 +47,5 @@ ELK由elasticsearch，logstash以及kibana组成，由于目前只需要日志�
 - 【强制】服务端工程提交前清理完所有[java代码检查插件](https://github.com/alibaba/p3c/tree/master/eclipse-plugin)错误
 - 【强制】开发交付件包括业务代码，单体测试代码
 - 【推荐】开发代码不允许出现强环境依赖，保持项目开箱即用
+## 开发指导
+http://freshconnect.gitee.io/yogurtcat-monolithic-doc/
