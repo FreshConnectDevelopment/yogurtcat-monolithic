@@ -41,7 +41,7 @@ export const filterAsyncRouter = (routers) => {
 }
 
 export const loadView = (view) => {
-  return () => import(`@/views/${view}`)
+  return (resolve) => require([`@/views/${view}`], resolve)
 }
 
 export default {
