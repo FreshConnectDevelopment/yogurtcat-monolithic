@@ -4,6 +4,7 @@ After=syslog.target
 
 [Service]
 User=yogurtcat
+Group=yogurtcatG
 ExecStart=/opt/yogurtcat-server-system/run/yogurtcat.sh start
 ExecStop=/opt/yogurtcat-server-system/run/yogurtcat.sh stop
 ExecReload=/opt/yogurtcat-server-system/run/yogurtcat.sh restart

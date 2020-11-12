@@ -5,4 +5,3 @@ Priority: low
 Architecture: all
 Description: [[description]]
 Maintainer: heaven <780490696@qq.com>
-Depends: default-jre | java8-runtime

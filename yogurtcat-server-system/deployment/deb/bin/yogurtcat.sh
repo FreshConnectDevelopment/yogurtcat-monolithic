@@ -26,9 +26,13 @@ error_exit ()
 [ ! -e "$JAVA_HOME/bin/java" ] && JAVA_HOME=/usr/java
 [ ! -e "$JAVA_HOME/bin/java" ] && unset JAVA_HOME
 
+if [ -z "$JAVA_HOME" ]; then
+  JAVA_PATH=`dirname $(readlink -f $(which java))`
+  export JAVA_HOME=`dirname $JAVA_PATH 2>/dev/null`
   if [ -z "$JAVA_HOME" ]; then
         error_exit "Please set the JAVA_HOME variable in your environment, We need java(x64)! jdk8 or later is better!"
   fi
+fi
 
 export SERVER="yogurtcat-server-system"
 export VERSION="0.0.1-SNAPSHOT"
@@ -36,7 +40,7 @@ export JAVA_HOME
 export JAVA="$JAVA_HOME/bin/java"
 export BASE_DIR=`cd $(dirname $0)/..; pwd`
 export CONFIG_SEARCH_LOCATIONS="/opt/${SERVER}/etc"
-export DEBUG_PORT="8000"
+export DEBUG_PORT="0.0.0.0:8000"
 
 #===========================================================================================
 # JVM Configuration
@@ -45,9 +49,13 @@ JAVA_OPT="${JAVA_OPT} -server -Xms2g -Xmx2g -Xmn1g -XX:MetaspaceSize=128m -XX:Ma
 JAVA_OPT="${JAVA_OPT} -XX:-OmitStackTraceInFastThrow -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/opt/${SERVER}/log/java_heapdump.hprof"
 JAVA_OPT="${JAVA_OPT} -XX:-UseLargePages"
 
-JAVA_OPT="${JAVA_OPT} -Djava.ext.dirs=${JAVA_HOME}/jre/lib/ext:${JAVA_HOME}/lib/ext"
-JAVA_OPT="${JAVA_OPT} -Xloggc:/opt/${SERVER}/log/yogurtcat_server_system_gc.log -verbose:gc -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+PrintGCTimeStamps -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=10 -XX:GCLogFileSize=100M"
-
+JAVA_MAJOR_VERSION=$($JAVA -version 2>&1 | sed -E -n 's/.* version "([0-9]*).*$/\1/p')
+if [[ "$JAVA_MAJOR_VERSION" -ge "9" ]] ; then
+  JAVA_OPT="${JAVA_OPT} -Xlog:gc*:file=/opt/${SERVER}/log/yogurtcat_server_user_gc.log:time,tags:filecount=10,filesize=102400"
+else
+  JAVA_OPT="${JAVA_OPT} -Djava.ext.dirs=${JAVA_HOME}/jre/lib/ext:${JAVA_HOME}/lib/ext"
+  JAVA_OPT="${JAVA_OPT} -Xloggc:/opt/${SERVER}/log/yogurtcat_server_user_gc.log -verbose:gc -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+PrintGCTimeStamps -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=10 -XX:GCLogFileSize=100M"
+fi
 JAVA_OPT="${JAVA_OPT} -jar /opt/${SERVER}/lib/${SERVER}-${VERSION}.jar"
 JAVA_OPT="${JAVA_OPT} --spring.config.location=${CONFIG_SEARCH_LOCATIONS}/"
 JAVA_OPT="${JAVA_OPT} --server.max-http-header-size=524288"
@@ -63,7 +71,7 @@ fi
 function start() {
   echo "$JAVA ${JAVA_OPT}" > /opt/${SERVER}/log/start.out 2>&1 &
   $JAVA ${JAVA_OPT}  >> /opt/${SERVER}/log/start.out 2>&1  < /dev/null
-  echo "yogurtcat_server_system is starting，you can check the /opt/${SERVER}/log/start.out"
+  echo "yogurtcat_server_user is starting，you can check the /opt/${SERVER}/log/start.out"
 }
 
 function stop() {
@@ -84,10 +92,10 @@ function restart() {
 }
 
 function debug() {
-  JAVA_OPT="${JAVA_OPT} -Xdebug -Xrunjdwp:server=y,transport=dt_socket,address=${DEBUG_PORT},suspend=n"
+  JAVA_OPT="-Xdebug -Xrunjdwp:server=y,transport=dt_socket,address=${DEBUG_PORT},suspend=n ${JAVA_OPT}"
   echo "$JAVA ${JAVA_OPT}" > /opt/${SERVER}/log/start.out 2>&1 &
   nohup $JAVA ${JAVA_OPT}  >> /opt/${SERVER}/log/start.out 2>&1 &
-  echo "yogurtcat_server_system is starting，you can check the /opt/${SERVER}/log/start.out"
+  echo "yogurtcat_server_user is starting，you can check the /opt/${SERVER}/log/start.out"
 }
 
 function help() {
@@ -102,7 +110,7 @@ function help() {
 }
 
 function main() {
-  case $1 in 
+  case $1 in
     start)
       start
       ;;

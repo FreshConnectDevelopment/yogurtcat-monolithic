@@ -1,4 +1,22 @@
-#!/bin/sh
-userdel yogurtcat
-groupdel yogurtcatG
-rm -rf  /opt/yogurtcat-server-system
+#!/bin/bash
+cd ~
+user=yogurtcat
+group=yogurtcatG
+
+count=`ps -ef |grep "/opt/yogurtcat-server-user" |grep -v "grep" |wc -l`
+if [ 0 != $count ];then
+    ps -ef | grep "/opt/yogurtcat-server-user" | grep -v grep | awk '{print $2}' | xargs kill -9
+fi
+
+
+egrep "^$group" /etc/group >& /dev/null
+if [ $? -gt 0 ]
+then
+    groupdel yogurtcatG
+fi
+
+egrep "^$user" /etc/passwd >& /dev/null
+if [ $? -gt 0 ]
+then
+    userdel yogurtcat
+fi
