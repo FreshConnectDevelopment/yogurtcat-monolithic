@@ -17,14 +17,14 @@ public interface ResourceService {
 	 * 条件分页查询
 	 * @param condition
 	 * @param pageable
-	 * @return
+	 * @return 资源信息列表
 	 */
 	Page<Resource> list(Optional<Resource> condition, Pageable pageable);
 
 	/**
 	 * 新增或修改
 	 * @param data
-	 * @return
+	 * @return 资源信息
 	 */
 	Resource save(Resource data);
 
@@ -37,7 +37,7 @@ public interface ResourceService {
 	/**
 	 * id查询
 	 * @param id
-	 * @return
+	 * @return 资源信息
 	 */
 	Resource findById(Long id);
 }

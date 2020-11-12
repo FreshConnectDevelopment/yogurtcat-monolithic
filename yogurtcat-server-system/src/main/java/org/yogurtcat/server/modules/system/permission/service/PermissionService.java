@@ -17,20 +17,20 @@ public interface PermissionService {
 	/**
 	 * 查询权限列表
 	 * @param condition
-	 * @return
+	 * @return 权限
 	 */
 	List<PermissionVo> list(Optional<PermissionVo> condition);
 
 	/**
 	 * 新增或修改
 	 * @param data
-	 * @return
+	 * @return 权限
 	 */
 	Permission save(PermissionVo data);
 
 	/**
 	 * 权限下拉列表
-	 * @return
+	 * @return 权限
 	 */
 	List<Map<String, Object>> optionlist();
 

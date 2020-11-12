@@ -37,7 +37,7 @@ public class PaymentController {
 	/**
 	 * 查询全部支付方式
 	 * @param condition
-	 * @return
+	 * @return 支付方式
 	 * @throws BusinessException
 	 */
 	@GetMapping(path = "list")

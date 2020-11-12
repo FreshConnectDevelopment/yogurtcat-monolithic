@@ -14,7 +14,7 @@ public interface ResourceRepository extends Repository<Resource, Long>, JpaSpeci
 	/**
 	 * 新增或修改
 	 * @param resource
-	 * @return
+	 * @return 资源信息
 	 */
 	Resource save(Resource resource);
 
@@ -27,7 +27,7 @@ public interface ResourceRepository extends Repository<Resource, Long>, JpaSpeci
 	/**
 	 * 根据id查找
 	 * @param id
-	 * @return
+	 * @return 资源信息
 	 */
 	Resource findById(Long id);
 	

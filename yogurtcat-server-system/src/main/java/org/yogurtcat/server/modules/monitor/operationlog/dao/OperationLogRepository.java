@@ -17,14 +17,14 @@ public interface OperationLogRepository extends Repository<OperationLog, Long>, 
 	 * 分页查询操作日志列表
 	 * @param pageable
 	 * @param username
-	 * @return
+	 * @return 日志列表
 	 */
 	public Page<OperationLog> findAllByUsername(Pageable pageable, String username);
 	
 	/**
 	 * 新增操作日志
 	 * @param entity
-	 * @return
+	 * @return 日志
 	 */
 	public OperationLog save(OperationLog entity);
 

@@ -37,10 +37,10 @@ public class PermissionController {
 	private PermissionService service;
 
 	/**
-	 * 查询项目列表
+	 * 查询权限列表
 	 * 
 	 * @param condition
-	 * @return
+	 * @return 权限列表
 	 * @throws BusinessException
 	 */
 	@GetMapping(path = "list")
@@ -55,8 +55,7 @@ public class PermissionController {
 	
 	/**
 	 * 菜单下拉列表
-	 * @param condition
-	 * @return
+	 * @return 菜单下拉列表
 	 * @throws BusinessException
 	 */
 	@GetMapping(path = "optionlist")

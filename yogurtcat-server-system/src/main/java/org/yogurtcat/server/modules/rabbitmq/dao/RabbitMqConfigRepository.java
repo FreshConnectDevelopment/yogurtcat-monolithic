@@ -14,13 +14,13 @@ public interface RabbitMqConfigRepository extends Repository<RabbitMqConfig, Lon
 	/**
 	 * 新增或修改
 	 * @param payment
-	 * @return
+	 * @return RabbitMQ配置
 	 */
 	RabbitMqConfig save(RabbitMqConfig payment);
 
 	/**
 	 * 查询按id排序的第一个配置
-	 * @return
+	 * @return RabbitMQ配置
 	 */
 	RabbitMqConfig findTopByOrderById();
 

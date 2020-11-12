@@ -33,8 +33,7 @@ public class RabbitMqConfigController {
 	/**
 	 * 查询rabbitMQ配置
 	 * 
-	 * @param condition
-	 * @return
+	 * @return rabbitMQ配置
 	 * @throws BusinessException
 	 */
 	@GetMapping(path = "list")

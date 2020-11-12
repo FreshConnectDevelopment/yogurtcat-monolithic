@@ -34,7 +34,7 @@ public class OperationLogController {
 	 * 操作日志列表
 	 * 
 	 * @param condition
-	 * @return
+	 * @return 操作日志
 	 * @throws BusinessException
 	 */
 	@GetMapping(path = "list")

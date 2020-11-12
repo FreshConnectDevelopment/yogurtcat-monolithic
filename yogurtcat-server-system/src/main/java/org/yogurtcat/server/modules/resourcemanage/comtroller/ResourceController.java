@@ -63,7 +63,7 @@ public class ResourceController {
 	 * @param file
 	 * @param businessType 上传资源的业务类型
 	 * @param path 存放路径
-	 * @return
+	 * @return 上传结果
 	 * @throws Exception
 	 * @throws BusinessException 
 	 */
@@ -116,7 +116,7 @@ public class ResourceController {
 	/**
 	 * 查询资源列表
 	 * @param condition
-	 * @return
+	 * @return 资源列表
 	 * @throws BusinessException
 	 */
 	@GetMapping(path = "list")
@@ -133,7 +133,7 @@ public class ResourceController {
 	/**
 	 * 删除资源数据，并在存储服务器删除文件
 	 * @param data
-	 * @return
+	 * @return 删除资源结果
 	 * @throws BusinessException
 	 */
 	@PostMapping(path = "delete", consumes = "application/json")

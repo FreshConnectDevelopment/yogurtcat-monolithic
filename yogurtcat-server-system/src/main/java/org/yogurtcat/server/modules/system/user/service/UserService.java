@@ -17,14 +17,14 @@ public interface UserService {
 	 * 根据账号密码查询用户
 	 * @param username
 	 * @param password
-	 * @return
+	 * @return 用户视图信息
 	 */
 	UserVo findUser(String username, String password);
 
 	/**
 	 * 使用token获取用户信息
 	 * @param username
-	 * @return
+	 * @return 用户视图信息
 	 */
 	UserVo findUserByUsername(String username);
 	
@@ -32,14 +32,14 @@ public interface UserService {
 	 * 分页条件查询
 	 * @param condition
 	 * @param pageable
-	 * @return
+	 * @return 用户视图信息
 	 */
 	Page<UserVo> list(Optional<UserVo> condition, Pageable pageable);
 
 	/**
 	 * 新增或修改
 	 * @param data
-	 * @return
+	 * @return 用户视图对象
 	 */
 	UserVo save(UserVo data);
 

@@ -19,14 +19,14 @@ public interface StorageService {
 	 * 条件分页查询
 	 * @param condition
 	 * @param pageable
-	 * @return
+	 * @return 存储信息列表
 	 */
 	Page<Storage> list(Optional<StorageVO> condition, Pageable pageable);
 
 	/**
 	 * 新增或修改
 	 * @param data
-	 * @return
+	 * @return 存储信息
 	 */
 	Storage save(StorageVO data);
 
@@ -39,20 +39,20 @@ public interface StorageService {
 	/**
 	 * 根据id查询
 	 * @param id
-	 * @return
+	 * @return 存储信息
 	 */
 	Storage findById(Long id);
 	
 	/**
 	 * 查询符合条件的上传方式
 	 * @param businessType
-	 * @return
+	 * @return 存储信息
 	 */
 	Storage findByBusinessType(String businessType);
 	
 	/**
 	 * 查询所有
-	 * @return
+	 * @return 所有存储信息
 	 */
 	List<Storage> findAll();
 }

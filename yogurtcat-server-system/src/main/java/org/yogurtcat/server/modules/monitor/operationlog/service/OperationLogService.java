@@ -18,14 +18,14 @@ public interface OperationLogService {
 	 * 分页查询操作日志列表
 	 * @param condition
 	 * @param pageable
-	 * @return
+	 * @return 操作日志
 	 */
 	public Page<OperationLogVo> findAll(Optional<OperationLogVo> condition, Pageable pageable);
 	
 	/**
 	 * 新增操作日志
 	 * @param entity
-	 * @return
+	 * @return 操作日志
 	 */
 	public OperationLog save(OperationLog entity);
 

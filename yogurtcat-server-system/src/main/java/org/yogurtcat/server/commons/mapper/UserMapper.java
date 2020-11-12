@@ -17,8 +17,8 @@ public interface UserMapper {
 
 	/**
 	 * User to UserVo
-	 * @param user
-	 * @return
+	 * @param user 用户实体
+	 * @return 用户视图对象
 	 */
 	UserVo toUserVo(User user);
 }

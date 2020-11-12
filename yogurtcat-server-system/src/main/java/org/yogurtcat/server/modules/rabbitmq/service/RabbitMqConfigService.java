@@ -12,14 +12,13 @@ public interface RabbitMqConfigService {
 	/**
 	 * 新增或修改
 	 * @param data
-	 * @return
+	 * @return rabbitMQ服务器配置
 	 */
 	RabbitMqConfig save(RabbitMqConfig data);
 	
 	/**
 	 * 查找配置
-	 * @param paymentType
-	 * @return
+	 * @return rabbitMQ服务器配置
 	 */
 	RabbitMqConfig find();
 

@@ -19,14 +19,13 @@ public @interface OperationLog {
 
 	/**
 	 * 日志id
-	 * @see 
-	 * @return
+	 * @return 日志id
 	 */
 	String logCode();
 	
 	/**
 	 * 功能模块
-	 * @return
+	 * @return 功能模块
 	 */
 	Module module();
 	

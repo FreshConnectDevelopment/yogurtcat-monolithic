@@ -15,14 +15,14 @@ public interface PermissionRepository extends Repository<Permission, Long>, JpaS
 
 	/**
 	 * 新增或修改
-	 * @param value
+	 * @param value 权限
 	 */
 	void save(Permission value);
 
 	/**
 	 * 根据父id查询子权限
 	 * @param pid
-	 * @return
+	 * @return 子权限
 	 */
 	List<Permission> findAllByPid(long pid);
 

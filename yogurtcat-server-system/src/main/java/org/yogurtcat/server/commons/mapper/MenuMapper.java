@@ -20,7 +20,7 @@ public interface MenuMapper {
 	/**
 	 * Menu to SidebarMenuVo
 	 * @param menu
-	 * @return
+	 * @return 侧边栏菜单对象
 	 */
 	@Mapping(source = "name", target = "name")
 	@Mapping(source = "name", target = "meta.title")
@@ -31,7 +31,7 @@ public interface MenuMapper {
 	/**
 	 * Menu to MenuVo
 	 * @param menu
-	 * @return
+	 * @return 菜单视图对象
 	 */
 	MenuVo toMenuVo(Menu menu);
 }
