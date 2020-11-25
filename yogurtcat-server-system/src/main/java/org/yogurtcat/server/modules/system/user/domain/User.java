@@ -61,7 +61,7 @@ public class User implements Serializable {
 	 * 角色信息
 	 */
     @ManyToMany
-    @JoinTable(name = "roles_users", joinColumns = {@JoinColumn(name = "role_id",referencedColumnName = "id")}, inverseJoinColumns = {@JoinColumn(name = "user_id",referencedColumnName = "id")})
+    @JoinTable(name = "roles_users", joinColumns = {@JoinColumn(name = "user_id",referencedColumnName = "id")}, inverseJoinColumns = {@JoinColumn(name = "role_id",referencedColumnName = "id")})
     private Set<Role> roles;
 
 	/**
