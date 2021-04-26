@@ -16,7 +16,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<org.mapstruct.version>1.3.0.Final</org.mapstruct.version>
-		<commons-io.version>2.6</commons-io.version>
+		<commons-io.version>2.7</commons-io.version>
 		<jjwt.version>0.9.1</jjwt.version>
 		<guava.version>27.0.1-jre</guava.version>
 		<aliyun-sdk-oss.version>2.8.3</aliyun-sdk-oss.version>
