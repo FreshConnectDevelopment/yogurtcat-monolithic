@@ -1,16 +1,13 @@
 <?xml version="1.0"?>
-<project
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
-	xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.github.freshconnect </groupId>
 		<artifactId>yogurtcat-server-parent</artifactId>
-		<version>${revision}</version>
-		<relativePath>../yogurtcat-server-parent</relativePath>
+		<version>0.0.4-RELEASE</version>
 	</parent>
 	<artifactId>yogurtcat-server-system</artifactId>
+	<version>1.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	<name>yogurtcat-server-system</name>
 	<url>http://maven.apache.org</url>
@@ -82,7 +79,6 @@
 		<dependency>
 			<groupId>com.github.freshconnect</groupId>
 			<artifactId>yogurtcat-server-common</artifactId>
-			<version>${revision}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -233,7 +229,7 @@
 										<filemode>750</filemode>
 									</mapper>
 								</data>
-								
+
 								<data>
 									<type>files</type>
 									<paths>
@@ -251,17 +247,17 @@
 									</mapper>
 								</data>
 
-                                <data>
-                                    <src>${basedir}/deployment/deb/bin/yogurtcat.sh</src>
-                                    <type>file</type>
-                                    <mapper>
-                                        <type>perm</type>
-                                        <prefix>/opt/${project.artifactId}/run</prefix>
-                                        <user>yogurtcat</user>
-                                        <group>yogurtcatG</group>
-                                        <filemode>775</filemode>
-                                    </mapper>
-                                </data>
+								<data>
+									<src>${basedir}/deployment/deb/bin/yogurtcat.sh</src>
+									<type>file</type>
+									<mapper>
+										<type>perm</type>
+										<prefix>/opt/${project.artifactId}/run</prefix>
+										<user>yogurtcat</user>
+										<group>yogurtcatG</group>
+										<filemode>775</filemode>
+									</mapper>
+								</data>
 							</dataSet>
 						</configuration>
 					</execution>
