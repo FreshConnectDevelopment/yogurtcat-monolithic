@@ -1,6 +1,5 @@
 package org.yogurtcat.server.modules.system.permission.domain;
 
-import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
 
@@ -10,11 +9,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.security.core.GrantedAuthority;
 import org.yogurtcat.server.modules.system.role.domain.Role;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -32,7 +31,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Permission implements Serializable, GrantedAuthority {
+public class Permission implements GrantedAuthority {
 
 	private static final long serialVersionUID = 1L;
 
@@ -40,7 +39,7 @@ public class Permission implements Serializable, GrantedAuthority {
 	 * 主键ID
 	 */
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
 	/**

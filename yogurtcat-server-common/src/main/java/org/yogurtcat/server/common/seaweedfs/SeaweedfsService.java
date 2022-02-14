@@ -10,9 +10,10 @@ import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
+import org.springframework.util.ObjectUtils;
 import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.web.reactive.function.client.ClientResponse;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -56,7 +57,8 @@ public class SeaweedfsService {
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.MULTIPART_FORM_DATA);
 		HttpEntity<FileSystemResource> entity = new HttpEntity<>(new FileSystemResource(request.getFile()), headers);
-		Mono<UploadResponse> response = webClient.post().uri("http://" + request.getServerIp() + ":8888/javascript/" + request.getPath())
+		Mono<UploadResponse> response = webClient.post()
+				.uri("http://" + request.getServerIp() + ":8888/javascript/" + request.getPath())
 				.contentType(MediaType.MULTIPART_FORM_DATA)
 				.body(BodyInserters.fromMultipartData(request.getFile().getName(), entity)).retrieve()
 				.bodyToMono(UploadResponse.class);
@@ -74,7 +76,13 @@ public class SeaweedfsService {
 	 */
 	public DownloadResponse downloadFile(DownloadRequest request) throws IOException {
 		Mono<ClientResponse> clientResponseMono = webClient.get().uri(request.getDownloadUrl())
-				.accept(MediaType.APPLICATION_OCTET_STREAM).exchange();
+				.accept(MediaType.APPLICATION_OCTET_STREAM).exchangeToMono(response -> {
+					if (response.statusCode().equals(HttpStatus.OK)) {
+						return response.bodyToMono(ClientResponse.class);
+					} else {
+						return response.createException().flatMap(Mono::error);
+					}
+				});
 		ClientResponse clientResponse = clientResponseMono.block();
 		Resource resource = clientResponse.bodyToMono(Resource.class).block();
 		File file = new File(request.getStorePath() + "/" + request.getName());
@@ -90,7 +98,7 @@ public class SeaweedfsService {
 	 */
 	public ListFilesUnderDirectoryResponse listFilesUnderDirectory(ListFilesUnderDirectoryRequest request) {
 		StringBuffer buffer = new StringBuffer();
-		if (!StringUtils.isEmpty(request.getPath())) {
+		if (!ObjectUtils.isEmpty(request.getPath())) {
 			buffer.append("/" + request.getPath());
 		}
 		if (request.getLastFileName().isPresent()) {
@@ -114,7 +122,7 @@ public class SeaweedfsService {
 	 */
 	public DeleteFilesOrDirectoryResponse deleteFilesOrDirectory(DeleteFilesOrDirectoryRequest request) {
 		StringBuffer buffer = new StringBuffer();
-		if (!StringUtils.isEmpty(request.getPath())) {
+		if (!ObjectUtils.isEmpty(request.getPath())) {
 			buffer.append("/" + request.getPath());
 		}
 		if (request.isDirectory()) {
@@ -122,7 +130,13 @@ public class SeaweedfsService {
 		}
 		Mono<ClientResponse> clientResponseMono = webClient.delete()
 				.uri("http://" + request.getServerIp() + ":8888/javascript" + buffer.toString())
-				.accept(MediaType.APPLICATION_JSON).exchange();
+				.accept(MediaType.APPLICATION_JSON).exchangeToMono(response -> {
+					if (response.statusCode().equals(HttpStatus.OK)) {
+						return response.bodyToMono(ClientResponse.class);
+					} else {
+						return response.createException().flatMap(Mono::error);
+					}
+				});
 		ClientResponse clientResponse = clientResponseMono.block();
 		Mono<DeleteFilesOrDirectoryResponse> response = clientResponse.bodyToMono(DeleteFilesOrDirectoryResponse.class);
 		return response.block();

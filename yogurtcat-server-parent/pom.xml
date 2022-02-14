@@ -24,8 +24,9 @@
 		<poi.version>4.1.0</poi.version>
 		<itextpdf.version>5.4.2</itextpdf.version>
 		<flying-saucer-pdf.version>9.0.3</flying-saucer-pdf.version>
-		<amqp-client.version>5.7.3</amqp-client.version>
+		<amqp-client.version>5.13.1</amqp-client.version>
 		<hutool.version>5.4.7</hutool.version>
+		<springfox.version>3.0.0</springfox.version>
 	</properties>
 
 	<dependencyManagement>
@@ -104,6 +105,11 @@
 				<groupId>cn.hutool</groupId>
 				<artifactId>hutool-all</artifactId>
 				<version>${hutool.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.springfox</groupId>
+				<artifactId>springfox-boot-starter</artifactId>
+				<version>${springfox.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
