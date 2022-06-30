@@ -22,7 +22,7 @@
 		<commons-compress.version>[1.19,)</commons-compress.version>
 		<aliyun-java-sdk-core.version>4.1.0</aliyun-java-sdk-core.version>
 		<poi.version>4.1.0</poi.version>
-		<itextpdf.version>5.4.2</itextpdf.version>
+		<itextpdf.version>5.5.12</itextpdf.version>
 		<flying-saucer-pdf.version>9.0.3</flying-saucer-pdf.version>
 		<amqp-client.version>5.13.1</amqp-client.version>
 		<hutool.version>5.4.7</hutool.version>
